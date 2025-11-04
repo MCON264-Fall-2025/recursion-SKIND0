@@ -43,6 +43,13 @@ public class BinarySearch {
         //   if (target < a[mid]) return search(a, target, lo, mid - 1);
         //   else if (target > a[mid]) return search(a, target, mid + 1, hi);
         //   else return mid;
-        return -2; // TEMP: replace with your recursive solution
+        if (lo > hi) return -1;
+        int mid = lo + (hi - lo) / 2;
+
+        if (a[mid] == target) return mid;
+        else if (target < a[mid]) return search(a, target, lo, mid - 1); // Left half
+        else return search(a, target, mid + 1, hi);
+
+        //return -2; // TEMP: replace with your recursive solution
     }
 }
